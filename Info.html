@@ -1,0 +1,673 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Document</title>
+
+
+  <style>
+  @font-face {
+    font-family: 'RIDIBatang';
+    src: url('https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_twelve@1.0/RIDIBatang.woff') format('woff');
+    font-weight: normal;
+    font-style: normal;
+                       }
+
+  body{margin: 0;
+       font-family:'RIDIBatang', '리디바탕', ng }
+
+header {
+  width:100%;
+  height:10%;
+}
+
+#LogoBox{width: 5%;
+         height: 5%;
+         position:absolute;
+         top:2%;
+         left:0%;
+
+       }
+
+#LogoBox img {
+  display:block;
+  position:absolute;
+  top:25%;
+  left:34%;
+}
+
+#AndBox{
+  width: 10%;
+           height: 10%;
+  position:absolute;
+  top:0%;
+  left:47%;
+
+
+}
+
+#AndBox img {
+  display:block;
+  position:absolute;
+  top:50%;
+  left:0%;
+  z-index: 2;
+}
+
+
+
+ul{
+  list-style-type: none;
+  text-decoration-line:none;
+  margin: 0;
+  padding: 0;
+  text-align: right;
+  position:absolute;
+  top:80%;
+  right:2%;
+
+}
+
+
+a{text-decoration-line:none;
+  line-height: 3em;
+    color : black;
+    text-align: left;
+    font-size: 1.2em
+}
+
+a:hover {
+  color : gray;}
+
+ #Text1-1 {display:none;}
+   #Map1-1{display:none;}
+   #Text2-1{display:none;}
+
+   #Move1-1{display:none;}
+     #Tong{display:none;}
+     #MenuM2{display: none;}
+
+
+
+  </style>
+  <style media="all and (max-width:767px)">
+
+  header
+  	{
+  		width:100%;
+  		height:60px;
+  		position: fixed;
+  		top:4%;
+
+  	}
+
+  	#LogoBox{width: 15%;
+  					 height: 15%;
+  					 position:absolute;
+  					 top:-10%;
+  					 left:0%;
+
+  				 }
+
+  	#LogoBox img {
+  		display:block;
+  		position:absolute;
+  		top:25%;
+  		left:34%;
+  	}
+
+
+  #AndBox{
+    width: 30%;
+             height: 30%;
+    position:absolute;
+    top:0%;
+    left:40%;
+
+  }
+
+  #AndBox img {
+    display:block;
+    position:absolute;
+    top:14%;
+    left:0%;
+  }
+
+  * {
+    margin: 0;
+    padding: 0;
+  }
+  *,
+  *:after,
+  *:before {
+    box-sizing: border-box;
+  }
+  ol,
+  ul {
+    list-style: none;
+  }
+  a {
+    color: #000;
+    text-decoration: none;
+  }
+  .mobile {
+    background-color: #19b698;
+    border: 0 solid #333;
+    border-width: 50px 15px;
+    border-radius: 12px;
+    box-shadow: 5px 5px 0 rgba(0, 0, 0, 0.6);
+    margin: 20px auto;
+    max-width: 300px;
+    height: 560px;
+    overflow: hidden;
+    position: relative;
+    margin-top: 40px;
+  }
+
+  .logo {
+    color: #fff;
+    font-size: 20px;
+    line-height: 50px;
+    padding: 0 0 0 20px;
+    text-transform: capitalize;
+  }
+  /* menu button */
+  .menuBtn {
+		height: 30px;
+		width: 30px;
+		position: fixed;
+		right: 20px;
+		top: 24px;
+		z-index: 101;
+	}
+
+  .menuBtn > span {
+    background-color: black;
+    border-radius: 1px;
+    height: 2px;
+    width: 100%;
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    margin: -1px 0 0 -15px;
+    -webkit-transition: height 100ms;
+    transition: height 100ms;
+  }
+  .menuBtn > span:after,
+  .menuBtn > span:before {
+    content: '';
+    background-color: black;
+    border-radius: 1px;
+    height: 2px;
+    width: 100%;
+    position: absolute;
+    left: 50%;
+    margin-left: -15px;
+    -webkit-transition: all 200ms;
+    transition: all 200ms;
+  }
+  .menuBtn > span:after {
+    top: -7px;
+  }
+  .menuBtn > span:before {
+    bottom: -7px;
+  }
+  .menuBtn.act > span {
+    height: 0;
+  }
+  .menuBtn.act > span:after,
+  .menuBtn.act > span:before {
+    background-color: black;
+    top: 1px;
+  }
+  .menuBtn.act > span:after {
+    -webkit-transform: rotate(45deg);
+            transform: rotate(45deg);
+  }
+  .menuBtn.act > span:before {
+    -webkit-transform: rotate(-45deg);
+            transform: rotate(-45deg);
+  }
+  /* main menu block */
+  .mainMenu {
+    background-color: #fff;
+    position: absolute;
+    left: 0;
+    top: 0;
+    z-index: 100;
+    height: 100%;
+    width: 100%;
+    display: table;
+    text-align: center;
+    opacity: 0;
+    -webkit-transition: all 500ms cubic-bezier(0.68, -0.55, 0.265, 1.55);
+    transition: all 500ms cubic-bezier(0.68, -0.55, 0.265, 1.55);
+    -webkit-transform: scale(0);
+            transform: scale(0);
+  }
+  .mainMenu.act {
+    opacity: 1;
+    -webkit-transform: scale(1);
+            transform: scale(1);
+  }
+  .mainMenu.act ul li {
+    opacity: 1;
+    -webkit-transform: translateX(0);
+            transform: translateX(0);
+  }
+  .mainMenu ul {
+    display: table-cell;
+    vertical-align: middle;
+  }
+  .mainMenu li {
+    padding: 8px 0;
+    -webkit-transition: all 400ms 510ms;
+    transition: all 400ms 510ms;
+    opacity: 0;
+  }
+  .mainMenu li:nth-child(odd) {
+    -webkit-transform: translateX(30%);
+            transform: translateX(30%);
+  }
+  .mainMenu li:nth-child(even) {
+    -webkit-transform: translateX(-30%);
+            transform: translateX(-30%);
+  }
+  .mainMenu li:last-child {
+    -webkit-transform: none;
+            transform: none;
+  }
+  .mainMenu a {
+    color: black;
+    display: inline-block;
+    font-size: 18px;
+  }
+  .mainMenu a.suBtn {
+    color: #fff;
+  }
+  /* sign up button */
+  .suBtn {
+    background-color: blue;
+    border-radius: 5px;
+    padding: 10px 20px;}
+    article {
+      width:7%;
+      height:700px;
+
+    }
+ul{
+      list-style-type: none;
+      text-decoration-line:none;
+      margin: 0;
+      padding: 0;
+      text-align: center;
+      position:absolute;
+      top:30%;
+      right:45%;
+
+    }
+  a{text-decoration-line:none;
+      line-height: 3em;
+        color : black;
+        text-align: left;
+        font-size: 1.2em
+    }
+
+  a:hover {
+      color : gray;}
+
+#TextLeft{display:none;
+}
+#TextLeftM{display:inline;
+  position: absolute;
+  top:15%;
+  left:3%;
+}
+
+#TextLeftLink {
+         position:absolute;
+         top:35%;
+         left:26%;
+         width:70%;
+       }
+
+       #Text1 {display:none;}
+        #Text1-1 {display:inline;}
+        #Map1{display:none;}
+        #Map1-1{display:inline;}
+
+
+          #Text2{display:none;}
+          #Text2-1{display:inline;}
+
+          #Move1{display:none;}
+          #Move1-1{display:inline;}
+
+
+          #Tong{display:inline;}
+
+#MapLink{width: 80%;
+  height:55%;
+
+  position:absolute;
+  top:120%;
+  left:10%;
+
+}
+
+#MenuM1{display: none;}
+#MenuM2{display: inline;}
+
+    </style>
+</head>
+<body>
+  <header>
+    <div id="LogoBox"><a href="index.html"><img src="svg/Logo.svg" width="70%" height=""  ></a></div>
+    <div id="AndBox"><img src="svg/Logo Text.svg" width="70%" height="" ></div>
+  </header>
+
+  <aside>
+
+<div id="Text1" style="font-size:2.8em; line-height:1.5em; position: absolute; Top:15%;left:15%; letter-spacing: 0.01em;" >
+  망설이지 말고 <br>
+언제든지 연락해
+</div>
+
+<div id="Text1-1" style="font-size:1.4em;
+text-align: center;
+line-height:1.5em; position: absolute; Top:15%;left:30%; letter-spacing: 0.01em;" >
+  망설이지 말고 <br>
+언제든지 연락해
+</div>
+
+
+
+
+<div id="Text1" style="font-size:1.3em; line-height:1.8em; position: absolute; Top:32%;left:16%;">
+  자살 위기를 넘기지 못했다면<br>
+누리지 못할 두번째 삶
+</div>
+
+<div id="Text1-1" style="font-size:1em; line-height:1.8em; position: absolute; Top:26%;left:25%; text-align:center">
+  자살 위기를 넘기지 못했다면<br>
+누리지 못할 두번째 삶
+</div>
+
+
+<div id="Map1" style="position: absolute; Top:44%;left:16%;" >
+    <img src="svg/InfoMapAi2.svg" width="90%" height=""  >
+</div>
+
+<div id="Map1-1" style="position: absolute; Top:41%;left:15%;" >
+    <img src="svg/InfoMapAi2.svg" width="85%" height=""  >
+</div>
+
+
+
+
+
+
+<div id="Move1" style="font-size:1em; line-height:1.8em; position: absolute; Top:85%;left:16%; color:#808080;" >
+  지도를 클릭하면,<br>
+해당 지역의 센터 웹사이트로 이동합니다
+</div>
+
+<div id="Move1-1" style="font-size:0.8em; text-align:center; line-height:1.8em; position: absolute; Top:102%;left:22%; color:#808080;" >
+  지도를 클릭하면,<br>
+해당 지역의 센터 웹사이트로 이동합니다
+</div>
+
+
+<div id="Map1"  style="position: absolute; Top:17%; right:30%;" >
+    <img src="svg/InfoMap.svg" width="140%" height=""  >
+</div>
+
+<div id="Map1-1"  style="position: absolute; Top:120%; right:0%;" >
+    <img src="svg/InfoMap.svg" width="85%" height=""  >
+</div>
+<div id="Text2">
+<div style=" font-size:1.1em; line-height:1.2em; position: absolute; Top:30%; right:45%; text-align:center;"  >
+  보건복지상담센터<br><br>
+129 콜서비스
+</div>
+
+<div style=" font-size:1.1em; line-height:1.2em; position: absolute; Top:60%; right:47%; text-align:center;"  >
+정신건강상담전화<br><br>
+1577 - 0199
+</div>
+<div style=" font-size:1.1em; line-height:1.2em; position: absolute; Top:25%; right:15%; text-align:center;"  >
+자살예방상담전화<br><br>
+1393 콜서비스
+</div>
+<div style=" font-size:1.1em; line-height:1.2em; position: absolute; Top:50%; right:13%; text-align:center;"  >
+한국생명의전화<br><br>
+1588 - 9191
+</div>
+<div style=" font-size:1.1em; line-height:1.2em; position: absolute; bottom:13%; right:20%; text-align:center;"  >
+삶의 이야기가 시작되면, 고통의 끝이 보입니다
+</div>
+<div style=" font-size:1em;  position: absolute; Top:30%; right:37%;"  >
+  <a href="http://www.ispc.or.kr/00_main/main.php">인천</a>
+
+</div>
+
+<div style=" font-size:1em;  position: absolute; Top:27%; right:35%;"  >
+ <a href="http://www.suicide.or.kr/">서울</a>
+</div>
+
+<div style=" font-size:1em;  position: absolute; Top:35%; right:35%;"  >
+<a href="https://www.mentalhealth.or.kr/">경기</a>
+</div>
+
+<div style=" font-size:1em;  position: absolute; Top:28%; right:30%;"  >
+<a href="https://gwmh.or.kr:446/document/sub02_1">강원</a>
+</div>
+
+<div style=" font-size:1em;  position: absolute; Top:42%; right:36%;"  >
+<a href="http://www.spckorea.or.kr/">세종</a>
+</div>
+
+<div style=" font-size:1em;  position: absolute; Top:46%; right:38%;"  >
+ <a href="http://www.spckorea.or.kr/">충남</a>
+</div>
+
+<div style=" font-size:1em;  position: absolute; Top:46%; right:33%;"  >
+ <a href="https://www.djpmhc.or.kr/index.php">대전</a>
+</div>
+
+<div style=" font-size:1em;  position: absolute; Top:41%; right:31%;"  >
+<a href="https://www.cbmind.or.kr/">충북</a>
+</div>
+
+<div style=" font-size:1em;  position: absolute; Top:46%; right:27%;"  >
+<a href="http://www.spckorea.or.kr/">경북</a>
+</div>
+
+<div style=" font-size:1em;  position: absolute; Top:53%; right:36%;"  >
+ <a href="http://www.spckorea.or.kr/">전북</a>
+</div>
+
+<div style=" font-size:1em;  position: absolute; Top:56%; right:38%;"  >
+ <a href="http://www.gmhc.kr/">광주</a>
+</div>
+
+<div style=" font-size:1em;  position: absolute; Top:54%; right:29%;"  >
+<a href="https://www.dgmhc.or.kr/mind/">대구</a>
+</div>
+
+<div style=" font-size:1em;  position: absolute; Top:59%; right:26%;"  >
+<a href="http://www.bukgumental.or.kr/main.html">울산</a>
+</div>
+
+<div style=" font-size:1em;  position: absolute; Top:62%; right:28%;"  >
+<a href="http://suicide.busaninmaum.com/">부산</a>
+</div>
+
+<div style=" font-size:1em;  position: absolute; Top:63%; right:32%;"  >
+<a href="http://www.spckorea.or.kr/">경남</a>
+</div>
+<div style=" font-size:1em;  position: absolute; Top:65%; right:37%;"  >
+<a href="http://www.spckorea.or.kr/">전남</a>
+</div>
+
+<div style=" font-size:1em;  position: absolute; Top:82%; right:41%;"  >
+  <a href="http://www.spckorea.or.kr/">제주</a>
+
+</div>
+</div>
+
+<div id="Text2-1">
+
+
+<div style=" font-size:0.8em; line-height:1.2em; position: absolute; Top:117%; right:60%; text-align:center;"  >
+  보건복지상담센터<br><br>
+129 콜서비스
+</div>
+
+<div style=" font-size:0.8em; line-height:1.2em; position: absolute; Top:142%; right:69%; text-align:center;"  >
+정신건강상담전화<br><br>
+1577 - 0199
+</div>
+<div style=" font-size:0.8em; line-height:1.2em; position: absolute; Top:113%; right:15%; text-align:center;"  >
+자살예방상담전화<br><br>
+1393 콜서비스
+</div>
+<div style=" font-size:0.8em; line-height:1.2em; position: absolute; Top:165%; right:13%; text-align:center;"  >
+한국생명의전화<br><br>
+1588 - 9191
+</div>
+<div style=" font-size:0.8em; line-height:1.2em; position: absolute; Top:180%; right:17%; text-align:center;"  >
+삶의 이야기가 시작되면, 고통의 끝이 보입니다
+</div>
+
+<div id="MapLink">
+
+
+<div style=" font-size:0.7em;  position: absolute; Top:15%; right:56%;"  >
+  <a href="http://www.ispc.or.kr/00_main/main.php">인천</a>
+
+</div>
+
+<div style=" font-size:0.7em;  position: absolute; Top:10%; right:48%;"  >
+ <a href="http://www.suicide.or.kr/">서울</a>
+</div>
+
+<div style="font-size:0.7em; position: absolute; Top:18%; right:45%;"  >
+<a href="https://www.mentalhealth.or.kr/">경기</a>
+</div>
+
+<div style=" font-size:0.7em;   position: absolute; Top:12%; right:25%;"  >
+<a href="https://gwmh.or.kr:446/document/sub02_1">강원</a>
+</div>
+
+<div style=" font-size:0.7em; position:absolute; Top:30%; right:50%;"  >
+<a href="http://www.spckorea.or.kr/">세종</a>
+</div>
+
+<div style=" font-size:0.7em;  position: absolute; Top:36%; right:58%;"  >
+ <a href="http://www.spckorea.or.kr/">충남</a>
+</div>
+
+<div style=" font-size:0.7em; position:absolute; Top:35%; right:36%;"  >
+ <a href="https://www.djpmhc.or.kr/index.php">대전</a>
+</div>
+
+<div style=" font-size:0.7em; position:absolute; Top:28%; right:30%;"  >
+<a href="https://www.cbmind.or.kr/">충북</a>
+</div>
+
+<div style="font-size:0.7em;  position: absolute; Top:36%; right:12%;"  >
+<a href="http://www.spckorea.or.kr/">경북</a>
+</div>
+
+<div style=" font-size:0.7em;  position: absolute; Top:45%; right:50%;"  >
+ <a href="http://www.spckorea.or.kr/">전북</a>
+</div>
+
+<div style=" font-size:0.7em;  position: absolute; Top:51%; right:60%;"  >
+ <a href="http://www.gmhc.kr/">광주</a>
+</div>
+
+<div style=" font-size:0.7em;  position: absolute; Top:48%; right:20%;"  >
+<a href="https://www.dgmhc.or.kr/mind/">대구</a>
+</div>
+
+<div style="font-size:0.7em;  position: absolute; Top:53%; right:12%;"  >
+<a href="http://www.bukgumental.or.kr/main.html">울산</a>
+</div>
+
+<div style=" font-size:0.7em;position: absolute; Top:58%; right:12%;"  >
+<a href="http://suicide.busaninmaum.com/">부산</a>
+</div>
+
+<div style=" font-size:0.7em;  position: absolute; Top:58%; right:32%;"  >
+<a href="http://www.spckorea.or.kr/">경남</a>
+</div>
+<div style=" font-size:0.7em; position: absolute; Top:62%; right:55%;"  >
+<a href="http://www.spckorea.or.kr/">전남</a>
+</div>
+
+<div style=" font-size:0.7em; position: absolute; Top:85%; right:67%;"  >
+  <a href="http://www.spckorea.or.kr/">제주</a>
+
+
+</div>
+
+
+</div>
+<div id="Tong" style=" width: 10%; height: 2%; position: absolute; Top:190%; right:17%;"  >
+
+</div>
+
+</div>
+
+
+  </aside>
+
+
+
+  <article>
+    <a href="#" class="menuBtn" id="MenuM1" >
+      <span class="lines"></span>
+    </a>
+    	<nav class="mainMenu" id="MenuM1">
+    <ul>
+      <li><a href="index.html">홈</li>
+      <li><a href="Test.html">진단</li>
+      <li><a href="Info.html">정보</li>
+    </ul>
+    </nav>
+  </article>
+
+  <article media="all and (max-width:767px)">
+    <a href="#" class="menuBtn" id="MenuM2">
+      <span class="lines"></span>
+    </a>
+    	<nav class="mainMenu" id="MenuM2">
+    <ul>
+      <li><a href="index.html">홈</li>
+      <li><a href="TestM.html">진단</li>
+      <li><a href="Info.html">정보</li>
+    </ul>
+    </nav>
+  </article>
+
+  <script src='https://cdnjs.cloudflare.com/ajax/libs/jquery/2.1.3/jquery.min.js'></script>
+  <script>
+  $(document).ready(function(){
+  // menu click event
+  $('.menuBtn').click(function() {
+  $(this).toggleClass('act');
+   if($(this).hasClass('act')) {
+     $('.mainMenu').addClass('act');
+   }
+   else {
+     $('.mainMenu').removeClass('act');
+   }
+  });
+  });
+  </script>
+</body>
+</html>

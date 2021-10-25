@@ -1,0 +1,738 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+
+<head>
+	<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+	<title>Responsive Auto-height - fullPage.js</title>
+	<meta name="author" content="Alvaro Trigo Lopez" />
+	<meta name="description" content="fullPage full-screen navigation and sections control menu." />
+	<meta name="keywords"  content="fullpage,jquery,demo,screen,fullscreen,navigation,control arrows, dots" />
+	<meta name="Resource-type" content="Document" />
+
+
+	<link rel="stylesheet" type="text/css" href="css/fullpage.css" />
+	<link rel="stylesheet" type="text/css" href="css/examples.css" />
+	<style>
+
+	@font-face {
+		font-family: 'RIDIBatang';
+		src: url('https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_twelve@1.0/RIDIBatang.woff') format('woff');
+		font-weight: normal;
+		font-style: normal;
+											 }
+
+	body{margin: 0;
+			 font-family:'RIDIBatang', '리디바탕', ng }
+
+	header {
+	width:100%;
+	height:10%;
+
+	}
+
+	#LogoBox{width: 5%;
+				 height: 5%;
+				 position:absolute;
+				 top:2%;
+				 left:0%;
+
+
+			 }
+
+	#LogoBox img {
+	display:block;
+	position:absolute;
+	top:25%;
+	left:34%;
+		z-index: 2;
+	}
+
+	#AndBox{
+	width: 10%;
+					 height: 10%;
+	position:absolute;
+	top:0%;
+	left:47%;
+
+
+	}
+
+	#AndBox img {
+	display:block;
+	position:absolute;
+	top:50%;
+	left:0%;
+	z-index: 2;
+	}
+
+
+
+	ul{
+	list-style-type: none;
+	text-decoration-line:none;
+	margin: 0;
+	padding: 0;
+	text-align: right;
+	position:absolute;
+	top:80%;
+	right:2%;
+
+	}
+
+
+	a{text-decoration-line:none;
+	line-height: 3em;
+		color : black;
+		text-align: left;
+		font-size: 1.2em
+	}
+
+	a:hover {
+	color : gray;}
+
+
+
+	/* Style for our header texts
+	* --------------------------------------- */
+	h1{
+		font-size: 5em;
+		font-family: arial,helvetica;
+		color: #fff;
+		margin:0;
+	}
+	.intro p{
+		color: #fff;
+	}
+
+	/* Centered texts in each section
+	* --------------------------------------- */
+	.section{
+		text-align:center;
+	}
+
+	/* Bottom menu
+	* --------------------------------------- */
+	#infoMenu li a {
+		color: #fff;
+	}
+
+#Box{width: 30%; height: 30%;
+	position:absolute;
+	top:50%;
+	right:50%;
+}
+
+#AiBox1{width: 25%; height: 30%;
+	position:absolute;
+	top:30%;
+	right:39%;
+}
+
+#AiBox2{
+	position:absolute;
+	top:30%;
+	left: 65%;
+
+width:12%;
+}
+
+
+#TextBox{ width:10%;
+height: 5%;
+}
+
+.TestTextBtn{
+	width: 110px;
+	height:110px;
+ position:absolute;
+ top:425px;
+ left:1285px;}
+
+
+
+
+
+/* btn */
+
+.btn-wrap > a {
+background-color:#fff;
+display:inline-block;
+position:absolute; top:439px; left:1312px;
+z-index:3;
+
+font-size: 18px; text-align: center; padding-top: 6px;
+
+
+}
+/* modal */
+
+.modal-cont img:nth-child(2){position:absolute; top: 50%; left: 100%}
+.modal-cont img:nth-child(3){position:absolute; top: 50%; left:-10%}
+#Img2{position:absolute; top:4%; left: 0%;  width:100%; height:100%; }
+
+
+#modal {
+position: fixed; left:10%; top:0;
+width: 80%; height: 90%;
+transform: scale(0);
+z-index: 4;
+
+}
+#modal .modal-bg {
+
+display:flex;
+align-items: center;
+justify-content: center;
+height: 100%;
+
+}
+#modal .modal-bg .modal-cont {
+position:relative;
+background: #fff;
+padding: 40px;
+max-width: 1100px;
+display: inline-block;
+height: 80%;
+width:  100%;
+border-radius: 10px;
+border:2px solid black;
+
+
+}
+#modal .modal-bg .modal-cont h2 {
+font-size: 30px;
+margin:0;
+}
+#modal .modal-bg .modal-cont p {
+font-size: 18px;
+}
+/* modalButton */
+#modal .modal-bg .modal-cont .close {
+position: absolute; top: 0; right:0;
+margin:15px;
+background: #000;
+width:2%; height: 3.2%;
+
+}
+
+#modal.three {
+transform: scaleY( 1 );
+
+
+
+
+}
+#modal.three .modal-bg {
+background: rgba(0,0,0,0);
+animation: fadeIn 0.5s cubic-bezier(0.165, 0.85, 0.44, 1) forwards;
+}
+#modal.three .modal-bg .modal-cont {
+opacity: 0;
+animation: scaleUp 0.5s cubic-bezier(0.165, 0.85, 0.44, 1) forwards;
+}
+#modal.three.out {
+animation: quickScaleDown 0s .5s linear forwards;
+}
+#modal.three.out .modal-bg {
+background: rgba(0,0,0,0);
+animation: fadeOut 0.5s cubic-bezier(0.165, 0.85, 0.44, 1) forwards;
+}
+#modal.three.out .modal-bg .modal-cont {
+opacity: 0;
+animation: scaleDown 0.5s cubic-bezier(0.165, 0.85, 0.44, 1) forwards;
+}
+
+
+
+@keyframes scaleUp {
+0% {transform: scale(0.5) translatey(1000px); opacity:0}
+100% {transform: scale(1) translatey(0px); opacity:1}
+}
+@keyframes scaleDown {
+0% {transform: scale(1) translatey(0px); opacity:1}
+100% {transform: scale(0.5) translatey(1000px); opacity:0}
+}
+@keyframes quickScaleDown {
+0% {transform: scale(1);}
+99.9% {transform: scale(1); }
+100% {transform: scale(0); }
+}
+
+	</style>
+
+
+
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.0/jquery.min.js"></script>
+	<script type="text/javascript">
+		$(".btn").click(function(){
+				$("#modal").removeAttr("class").addClass("three");
+		});
+
+		$(".close").click(function(){
+				$("#modal").addClass("out");
+		});
+	</script>
+	<script>
+	AOS.init({
+		easing: 'ease-in-out-sine'
+	});
+
+	window.onload = function() {
+
+	 function onClick() {
+			 document.querySelector('.modal_wrap').style.display ='block';
+			 document.querySelector('.black_bg').style.display ='block';
+	 }
+	 function offClick() {
+			 document.querySelector('.modal_wrap').style.display ='none';
+			 document.querySelector('.black_bg').style.display ='none';
+	 }
+
+	 document.getElementById('modal_btn').addEventListener('click', onClick);
+	 document.querySelector('.modal_close').addEventListener('click', offClick);
+
+	};
+
+
+
+
+	</script>
+	<!--[if IE]>
+		<script type="text/javascript">
+			 var console = { log: function() {} };
+		</script>
+	<![endif]-->
+
+	<style media="all and (max-width:767px)">
+
+	header
+	{
+		width:100%;
+		height:60px;
+	}
+
+	#LogoBox{width: 15%;
+					 height: 15%;
+					 position:absolute;
+					 top:0%;
+					 left:0%;
+
+				 }
+
+	#LogoBox img {
+		display:block;
+		position:absolute;
+		top:25%;
+		left:34%;
+	}
+
+	#AndBox{
+		width: 30%;
+						 height: 30%;
+		position:absolute;
+		top:0%;
+		left:40%;
+
+	}
+
+	#AndBox img {
+		display:block;
+		position:absolute;
+		top:14%;
+		left:0%;
+	}
+
+	* {
+		margin: 0;
+		padding: 0;
+	}
+	*,
+	*:after,
+	*:before {
+		box-sizing: border-box;
+	}
+	ol,
+	ul {
+		list-style: none;
+	}
+	a {
+		color: #000;
+		text-decoration: none;
+	}
+	.mobile {
+		background-color: #19b698;
+		border: 0 solid #333;
+		border-width: 50px 15px;
+		border-radius: 12px;
+		box-shadow: 5px 5px 0 rgba(0, 0, 0, 0.6);
+		margin: 20px auto;
+		max-width: 300px;
+		height: 560px;
+		overflow: hidden;
+		position: relative;
+		margin-top: 40px;
+	}
+
+	.logo {
+		color: #fff;
+		font-size: 20px;
+		line-height: 50px;
+		padding: 0 0 0 20px;
+		text-transform: capitalize;
+	}
+	/* menu button */
+	.menuBtn {
+		height: 30px;
+		width: 30px;
+		position: absolute;
+		right: 20px;
+		top: 24px;
+		z-index: 101;
+	}
+	.menuBtn > span {
+		background-color: black;
+		border-radius: 1px;
+		height: 2px;
+		width: 100%;
+		position: absolute;
+		left: 50%;
+		top: 50%;
+		margin: -1px 0 0 -15px;
+		-webkit-transition: height 100ms;
+		transition: height 100ms;
+	}
+	.menuBtn > span:after,
+	.menuBtn > span:before {
+		content: '';
+		background-color: black;
+		border-radius: 1px;
+		height: 2px;
+		width: 100%;
+		position: absolute;
+		left: 50%;
+		margin-left: -15px;
+		-webkit-transition: all 200ms;
+		transition: all 200ms;
+	}
+	.menuBtn > span:after {
+		top: -7px;
+	}
+	.menuBtn > span:before {
+		bottom: -7px;
+	}
+	.menuBtn.act > span {
+		height: 0;
+	}
+	.menuBtn.act > span:after,
+	.menuBtn.act > span:before {
+		background-color: black;
+		top: 1px;
+	}
+	.menuBtn.act > span:after {
+		-webkit-transform: rotate(45deg);
+						transform: rotate(45deg);
+	}
+	.menuBtn.act > span:before {
+		-webkit-transform: rotate(-45deg);
+						transform: rotate(-45deg);
+	}
+	/* main menu block */
+	.mainMenu {
+		background-color: #fff;
+		position: absolute;
+		left: 0;
+		top: 0;
+		z-index: 100;
+		height: 100%;
+		width: 100%;
+		display: table;
+		text-align: center;
+		opacity: 0;
+		-webkit-transition: all 500ms cubic-bezier(0.68, -0.55, 0.265, 1.55);
+		transition: all 500ms cubic-bezier(0.68, -0.55, 0.265, 1.55);
+		-webkit-transform: scale(0);
+						transform: scale(0);
+	}
+	.mainMenu.act {
+		opacity: 1;
+		-webkit-transform: scale(1);
+						transform: scale(1);
+	}
+	.mainMenu.act ul li {
+		opacity: 1;
+		-webkit-transform: translateX(0);
+						transform: translateX(0);
+	}
+	.mainMenu ul {
+		display: table-cell;
+		vertical-align: middle;
+	}
+	.mainMenu li {
+		padding: 8px 0;
+		-webkit-transition: all 400ms 510ms;
+		transition: all 400ms 510ms;
+		opacity: 0;
+	}
+	.mainMenu li:nth-child(odd) {
+		-webkit-transform: translateX(30%);
+						transform: translateX(30%);
+	}
+	.mainMenu li:nth-child(even) {
+		-webkit-transform: translateX(-30%);
+						transform: translateX(-30%);
+	}
+	.mainMenu li:last-child {
+		-webkit-transform: none;
+						transform: none;
+	}
+	.mainMenu a {
+		color: black;
+		display: inline-block;
+		font-size: 18px;
+	}
+	.mainMenu a.suBtn {
+		color: #fff;
+	}
+	/* sign up button */
+	.suBtn {
+		background-color: blue;
+		border-radius: 5px;
+		padding: 10px 20px;}
+		article {
+			width:7%;
+			height:700px;
+
+		}
+	ul{
+			list-style-type: none;
+			text-decoration-line:none;
+			margin: 0;
+			padding: 0;
+			text-align: center;
+			position:absolute;
+			top:30%;
+			right:45%;
+
+		}
+	a{text-decoration-line:none;
+			line-height: 3em;
+				color : black;
+				text-align: left;
+				font-size: 1.2em
+		}
+
+	a:hover {
+			color : gray;}
+
+	#TextLeft{display:none;
+	}
+	#TextLeftM{display:inline;
+	position: absolute;
+	top:15%;
+	left:3%;
+	}
+
+	#TextLeftLink {
+				 position:absolute;
+				 top:35%;
+				 left:26%;
+				 width:70%;
+			 }
+
+		</style>
+</head>
+<body>
+	<header>
+    <div id="LogoBox"><a href="index.html"><img src="svg/Logo.svg" width="70%" height=""  ></a></div>
+    <div id="AndBox"><img src="svg/Logo Text.svg" width="70%" height="" ></div>
+  </header>
+
+
+<div id="fullpage">
+	<div class="section fp-auto-height-responsive" id="section0">
+		<div class="intro">
+
+			<div id="Text">
+		<div style=" font-size:2em;  position: absolute; Top:10%; right:40%; color: black;" >나 자신을 스스로 드러내다</div>
+
+				<div style=" font-size:1em;  position: absolute; Top:20%; right:40%;color: black;" >
+					우울증 예방 또는 극복을 위하여 자기 자신의 상태를<br>
+			먼저 아는 노력이 무엇보다 가장 중요합니다.<br>
+			</div>
+
+			<div id="AiBox1">
+				<img src="png/Problem2.png" width="120%" height="" >
+			</div>
+
+			<div class="btn-wrap">
+				<div class="TestTextBtn">
+				<img src="TestBtn1.png" />
+				</div>
+				<a href="#" id="AiBox2" class="btn"><img src="svg/TestButton.svg" width="70%" height="" ></a>
+			</div>
+
+			<div id="modal">
+					<div class="modal-bg">
+							<div class="modal-cont">
+
+									<img src="svg/TestModal.svg"  id="Img2">
+									<a href="#" class="close close1">
+
+									</a>
+							</div>
+					</div>
+			</div>
+
+
+
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.0/jquery.min.js"></script>
+			<script type="text/javascript">
+				$(".btn").click(function(){
+						$("#modal").removeAttr("class").addClass("three");
+				});
+
+				$(".close").click(function(){
+						$("#modal").addClass("out");
+				});
+			</script>
+
+
+
+
+
+
+		<div style=" font-size:1em;  position: absolute; Top:70%; right:34%;color: black;" >
+				우울증 자가진단 테스트 후에 복잡한 생각이 든다면 지금,<br><br>
+
+			오늘만큼은 내가 좋아하는 일<br>
+			혹은 내 마음의 에너지를  채울 수 있는 일들로 쉬어가는 시간을 가지는 건 어떨까요?<br>
+				</div>
+		</div>
+
+		</div>
+	</div>
+
+	<div class="section" id="section1">
+		<div style=" font-size:1.5em;  position: absolute; Top:9%; right:42%; color: black;" >많이 힘들었을 당신은 지금,</div>
+		<div id="Ai" style=" position: absolute; Top:40%; right:22%;">
+			<img src="png/TestScore.png" width="100%" height="" >
+		</div>
+
+		<div id="AiButton1" style=" position: absolute; Top:20%; right:63%;">
+			<a href="#tag1"><img src="svg/TestScoreButton1.svg" width="50%" height="" ></a>
+		</div>
+
+		<div id="AiButton2" style=" position: absolute; Top:20%; right:41.5%;">
+			<a href="Info.html"><img src="svg/TestScoreButton2.svg" width="50%" height="" ></a>
+		</div>
+
+		<div id="AiButton3" style=" position: absolute; Top:20%; right:19.5%;">
+			<a href="Info.html"><img src="svg/TestScoreButton3.svg" width="50%" height="" ></a>
+		</div>
+
+
+
+	</div>
+
+	<!-- 세번째 -->
+
+	<script type="text/javascript">
+
+	function ChnImg1(){
+
+		document.getElementById("Letter").src = "svg/TestLetter1.svg";
+
+	}
+
+  function ChnImg2(){
+
+		document.getElementById("Letter").src = "svg/TestLetter2.svg";
+
+	}
+
+  function ChnImg3(){
+
+		document.getElementById("Letter").src = "svg/TestLetter3.svg";
+
+	}
+
+</script>
+
+	<div class="section" id="section2">
+		<div style=" position: absolute; Top:14%; right:65%;">
+			<img id="Letter" src="svg/TestLetter1.svg" width="400%" height="" >
+		</div>
+
+
+
+
+			<div id="TextBox"  onclick="ChnImg1()" style=" position: absolute; Top:25%; right:65%;" >
+		</div>
+
+
+
+		<div id="TextBox"  onclick="ChnImg2()" style=" position: absolute; Top:41%; right:65%;"  >
+
+		</div>
+
+
+
+		<div id="TextBox"  onclick="ChnImg3()" style=" position: absolute; Top:56%; right:65%;" >
+		</div>
+<a name="tag1"></a>
+
+
+	</div>
+</div>
+
+<script type="text/javascript" src="css/fullpage.js"></script>
+<script type="text/javascript" src="css/examples.js"></script>
+
+<script type="text/javascript">
+    var myFullpage = new fullpage('#fullpage', {
+        anchors: ['firstPage', 'secondPage', '3rdPage'],
+        sectionsColor: ['White', 'White', 'White'],
+        navigation: true,
+        navigationPosition: 'right',
+        navigationTooltips: ['나 자신을 스스로 드러내다', '많이 힘들었을 당신은 지금,', '힘들어 하고 있을 너에게'],
+        responsiveWidth: 900,
+        afterResponsive: function(isResponsive){
+
+        }
+
+    });
+</script>
+
+
+
+<article>
+	<a href="#" class="menuBtn">
+		<span class="lines"></span>
+	</a>
+		<nav class="mainMenu">
+	<ul>
+		<li><a href="index.html">홈</li>
+		<li><a href="Test.html">진단</li>
+		<li><a href="Info.html">정보</li>
+	</ul>
+	</nav>
+</article>
+
+<script src='https://cdnjs.cloudflare.com/ajax/libs/jquery/2.1.3/jquery.min.js'></script>
+<script>
+$(document).ready(function(){
+// menu click event
+$('.menuBtn').click(function() {
+$(this).toggleClass('act');
+ if($(this).hasClass('act')) {
+	 $('.mainMenu').addClass('act');
+ }
+ else {
+	 $('.mainMenu').removeClass('act');
+ }
+});
+});
+</script>
+
+</body>
+</html>

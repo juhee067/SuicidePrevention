@@ -1,0 +1,854 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<meta http-equiv="X-UA-Compatible" content="ie=edge">
+	<title>Document</title>
+	<style>
+
+	@font-face {
+		font-family: 'RIDIBatang';
+		src: url('https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_twelve@1.0/RIDIBatang.woff') format('woff');
+		font-weight: normal;
+		font-style: normal;
+											 }
+
+	body{margin: 0;
+			 font-family:'RIDIBatang', '리디바탕', ng }
+
+	header {
+	width:100%;
+	height:10%;
+
+	}
+
+	#LogoBox{width: 5%;
+				 height: 5%;
+				 position:absolute;
+				 top:2%;
+				 left:0%;
+
+
+			 }
+
+	#LogoBox img {
+	display:block;
+	position:absolute;
+	top:25%;
+	left:34%;
+		z-index: 2;
+	}
+
+	#AndBox{
+	width: 10%;
+					 height: 10%;
+	position:absolute;
+	top:0%;
+	left:47%;
+
+
+	}
+
+	#AndBox img {
+	display:block;
+	position:absolute;
+	top:50%;
+	left:0%;
+	z-index: 2;
+	}
+
+
+
+	ul{
+	list-style-type: none;
+	text-decoration-line:none;
+	margin: 0;
+	padding: 0;
+	text-align: right;
+	position:absolute;
+	top:80%;
+	right:2%;
+
+	}
+
+
+	a{text-decoration-line:none;
+	line-height: 3em;
+		color : black;
+		text-align: left;
+		font-size: 1.2em
+	}
+
+	a:hover {
+	color : gray;}
+
+
+
+	/* Style for our header texts
+	* --------------------------------------- */
+	h1{
+		font-size: 5em;
+		font-family: arial,helvetica;
+		color: #fff;
+		margin:0;
+	}
+	.intro p{
+		color: #fff;
+	}
+
+	/* Centered texts in each section
+	* --------------------------------------- */
+	.section{
+		text-align:center;
+	}
+
+	/* Bottom menu
+	* --------------------------------------- */
+	#infoMenu li a {
+		color: #fff;
+	}
+
+#Box{width: 30%; height: 30%;
+	position:absolute;
+	top:50%;
+	right:50%;
+}
+
+#AiBox1{width: 25%; height: 30%;
+	position:absolute;
+	top:30%;
+	right:39%;
+}
+
+#AiBox2{
+	position:absolute;
+	top:35%;
+	left: 75%;
+z-index: 0;
+width:12%;
+}
+
+
+#TextBox{ width:10%;
+height: 5%;
+}
+
+.TestTextBtn{
+	width: 110px;
+	height:110px;
+ position:absolute;
+ top:425px;
+ left:1285px;}
+
+
+
+
+
+/* btn */
+
+.btn-wrap > a {
+background-color:#fff;
+display:inline-block;
+position:absolute; top:439px; left:1312px;
+z-index:3;
+
+font-size: 18px; text-align: center; padding-top: 6px;
+
+
+}
+/* modal */
+
+.modal-cont img:nth-child(2){position:absolute; top: 50%; left: 100%}
+.modal-cont img:nth-child(3){position:absolute; top: 50%; left:-10%}
+#Img2{position:absolute; top:4%; left: 0%;  width:100%; height:100%; }
+
+
+#modal {
+position: fixed; left:10%; top:7%;
+width: 80%; height: 90%;
+transform: scale(0);
+z-index: 4;
+
+}
+#modal .modal-bg {
+
+display:flex;
+align-items: center;
+justify-content: center;
+height: 100%;
+
+}
+#modal .modal-bg .modal-cont {
+position:relative;
+background: #fff;
+padding: 40px;
+max-width: 1100px;
+display: inline-block;
+height: 80%;
+width:  100%;
+border-radius: 10px;
+border:2px solid black;
+
+
+}
+#modal .modal-bg .modal-cont h2 {
+font-size: 30px;
+margin:0;
+}
+#modal .modal-bg .modal-cont p {
+font-size: 18px;
+}
+/* modalButton */
+#modal .modal-bg .modal-cont .close {
+position: absolute; top: 0; right:0;
+margin:15px;
+background: #000;
+width:6%; height: 3.2%;
+
+}
+
+#modal.three {
+transform: scaleY( 1 );
+
+
+
+
+}
+#modal.three .modal-bg {
+background: rgba(0,0,0,0);
+animation: fadeIn 0.5s cubic-bezier(0.165, 0.85, 0.44, 1) forwards;
+}
+#modal.three .modal-bg .modal-cont {
+opacity: 0;
+animation: scaleUp 0.5s cubic-bezier(0.165, 0.85, 0.44, 1) forwards;
+}
+#modal.three.out {
+animation: quickScaleDown 0s .5s linear forwards;
+}
+#modal.three.out .modal-bg {
+background: rgba(0,0,0,0);
+animation: fadeOut 0.5s cubic-bezier(0.165, 0.85, 0.44, 1) forwards;
+}
+#modal.three.out .modal-bg .modal-cont {
+opacity: 0;
+animation: scaleDown 0.5s cubic-bezier(0.165, 0.85, 0.44, 1) forwards;
+}
+
+
+
+@keyframes scaleUp {
+0% {transform: scale(0.5) translatey(1000px); opacity:0}
+100% {transform: scale(1) translatey(0px); opacity:1}
+}
+@keyframes scaleDown {
+0% {transform: scale(1) translatey(0px); opacity:1}
+100% {transform: scale(0.5) translatey(1000px); opacity:0}
+}
+@keyframes quickScaleDown {
+0% {transform: scale(1);}
+99.9% {transform: scale(1); }
+100% {transform: scale(0); }
+}
+
+#self2 {display: none;}
+
+	</style>
+
+
+
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.0/jquery.min.js"></script>
+	<script type="text/javascript">
+		$(".btn").click(function(){
+				$("#modal").removeAttr("class").addClass("three");
+		});
+
+		$(".close").click(function(){
+				$("#modal").addClass("out");
+		});
+	</script>
+	<script>
+	AOS.init({
+		easing: 'ease-in-out-sine'
+	});
+
+	window.onload = function() {
+
+	 function onClick() {
+			 document.querySelector('.modal_wrap').style.display ='block';
+			 document.querySelector('.black_bg').style.display ='block';
+	 }
+	 function offClick() {
+			 document.querySelector('.modal_wrap').style.display ='none';
+			 document.querySelector('.black_bg').style.display ='none';
+	 }
+
+	 document.getElementById('modal_btn').addEventListener('click', onClick);
+	 document.querySelector('.modal_close').addEventListener('click', offClick);
+
+	};
+
+
+
+
+	</script>
+	<!--[if IE]>
+		<script type="text/javascript">
+			 var console = { log: function() {} };
+		</script>
+	<![endif]-->
+
+	<style media="all and (max-width:767px)">
+
+
+	header
+	{
+		width:100%;
+		height:60px;
+		position: fixed;
+		top:4%;
+
+	}
+
+	#LogoBox{width: 15%;
+					 height: 15%;
+					 position:absolute;
+					 top:-10%;
+					 left:0%;
+
+				 }
+
+	#LogoBox img {
+		display:block;
+		position:absolute;
+		top:25%;
+		left:34%;
+	}
+
+	#AndBox{
+		width: 30%;
+						 height: 30%;
+		position:absolute;
+		top:0%;
+		left:40%;
+
+	}
+
+	#AndBox img {
+		display:block;
+		position:absolute;
+		top:14%;
+		left:0%;
+	}
+
+	* {
+		margin: 0;
+		padding: 0;
+	}
+	*,
+	*:after,
+	*:before {
+		box-sizing: border-box;
+	}
+	ol,
+	ul {
+		list-style: none;
+	}
+	a {
+		color: #000;
+		text-decoration: none;
+	}
+	.mobile {
+		background-color: #19b698;
+		border: 0 solid #333;
+		border-width: 50px 15px;
+		border-radius: 12px;
+		box-shadow: 5px 5px 0 rgba(0, 0, 0, 0.6);
+		margin: 20px auto;
+		max-width: 300px;
+		height: 560px;
+		overflow: hidden;
+		position: relative;
+		margin-top: 40px;
+	}
+
+	.logo {
+		color: #fff;
+		font-size: 20px;
+		line-height: 50px;
+		padding: 0 0 0 20px;
+		text-transform: capitalize;
+	}
+	/* menu button */
+	.menuBtn {
+		height: 30px;
+		width: 30px;
+		position: fixed;
+		right: 20px;
+		top: 24px;
+		z-index: 101;
+	}
+	.menuBtn > span {
+		background-color: black;
+		border-radius: 1px;
+		height: 2px;
+		width: 100%;
+		position: absolute;
+		left: 50%;
+		top: 50%;
+		margin: -1px 0 0 -15px;
+		-webkit-transition: height 100ms;
+		transition: height 100ms;
+	}
+	.menuBtn > span:after,
+	.menuBtn > span:before {
+		content: '';
+		background-color: black;
+		border-radius: 1px;
+		height: 2px;
+		width: 100%;
+		position: absolute;
+		left: 50%;
+		margin-left: -15px;
+		-webkit-transition: all 200ms;
+		transition: all 200ms;
+	}
+	.menuBtn > span:after {
+		top: -7px;
+	}
+	.menuBtn > span:before {
+		bottom: -7px;
+	}
+	.menuBtn.act > span {
+		height: 0;
+	}
+	.menuBtn.act > span:after,
+	.menuBtn.act > span:before {
+		background-color: black;
+		top: 1px;
+	}
+	.menuBtn.act > span:after {
+		-webkit-transform: rotate(45deg);
+						transform: rotate(45deg);
+	}
+	.menuBtn.act > span:before {
+		-webkit-transform: rotate(-45deg);
+						transform: rotate(-45deg);
+	}
+	/* main menu block */
+	.mainMenu {
+
+		background-color: #fff;
+		position: absolute;
+		left: 0;
+		top: 0;
+		z-index: 100;
+		height: 100%;
+		width: 100%;
+		display: table;
+		text-align: center;
+		opacity: 0;
+		-webkit-transition: all 500ms cubic-bezier(0.68, -0.55, 0.265, 1.55);
+		transition: all 500ms cubic-bezier(0.68, -0.55, 0.265, 1.55);
+		-webkit-transform: scale(0);
+						transform: scale(0);
+	}
+	.mainMenu.act {
+		opacity: 1;
+		-webkit-transform: scale(1);
+						transform: scale(1);
+	}
+	.mainMenu.act ul li {
+		opacity: 1;
+		-webkit-transform: translateX(0);
+						transform: translateX(0);
+	}
+	.mainMenu ul {
+		display: table-cell;
+		vertical-align: middle;
+	}
+	.mainMenu li {
+		padding: 8px 0;
+		-webkit-transition: all 400ms 510ms;
+		transition: all 400ms 510ms;
+		opacity: 0;
+	}
+	.mainMenu li:nth-child(odd) {
+		-webkit-transform: translateX(30%);
+						transform: translateX(30%);
+	}
+	.mainMenu li:nth-child(even) {
+		-webkit-transform: translateX(-30%);
+						transform: translateX(-30%);
+	}
+	.mainMenu li:last-child {
+		-webkit-transform: none;
+						transform: none;
+	}
+	.mainMenu a {
+		color: black;
+		display: inline-block;
+		font-size: 18px;
+	}
+	.mainMenu a.suBtn {
+		color: #fff;
+	}
+	/* sign up button */
+	.suBtn {
+		background-color: blue;
+		border-radius: 5px;
+		padding: 10px 20px;}
+		article {
+			width:7%;
+			height:700px;
+
+		}
+	ul{
+			list-style-type: none;
+			text-decoration-line:none;
+			margin: 0;
+			padding: 0;
+			text-align: center;
+			position:absolute;
+			top:30%;
+			right:45%;
+
+		}
+	a{text-decoration-line:none;
+			line-height: 3em;
+				color : black;
+				text-align: left;
+				font-size: 1.2em
+		}
+
+	a:hover {
+			color : gray;}
+
+#self1 {display: none;}
+#self2 {display: inline;}
+
+#TextBox{ width:10%;
+height: 5%;
+}
+
+.TestTextBtn{
+	width: 110px;
+	height:110px;
+ position:absolute;
+ top:425px;
+ left:1285px;}
+
+
+
+#TestBox1{width: 90%;
+height:20%;
+
+position:absolute;
+top:120%;
+right:2%;
+
+
+}
+#TestBox2{width: 90%;
+height:20%;
+
+position:absolute;
+top:145%;
+right:2%;
+
+
+}
+#TestBox3{width: 90%;
+height:20%;
+
+position:absolute;
+top:170%;
+right:2%;
+
+
+}
+#TestBox4{width: 55%;
+height:20%;
+
+position:absolute;
+top:205%;
+right:22%;
+
+
+}
+
+#TestBox6{width: 45%;
+height:10%;
+
+position:absolute;
+top:285%;
+right:2%;
+
+
+}
+
+#TestLetterButtonM{
+
+	width: 60%;
+	height: 10%;
+	position:absolute;
+
+	left:20%;
+
+
+}
+		</style>
+</head>
+<body>
+	<header>
+    <div id="LogoBox"><a href="index.html"><img src="svg/Logo.svg" width="70%" height=""  ></a></div>
+    <div id="AndBox"><img src="svg/Logo Text.svg" width="70%" height="" ></div>
+  </header>
+
+
+<div id="fullpage">
+	<div class="section fp-auto-height-responsive" id="section0">
+		<div class="intro">
+
+			<div id="Text">
+		<div id="self1" style=" font-size:2em;  position: absolute; Top:10%; right:40%; color: black;" >나 자신을 스스로 드러내다</div>
+			<div id="self2" style=" font-size:1em;  position: absolute; Top:20%; left:25%; color: black;" >나 자신을 스스로 드러내다</div>
+
+				<div id="self1" style=" font-size:1em;  position: absolute; Top:20%; right:40%;color: black;" >
+					우울증 예방 또는 극복을 위하여 자기 자신의 상태를<br>
+			먼저 아는 노력이 무엇보다 가장 중요합니다.<br>
+			</div>
+
+			<div  id="self2" style=" font-size:0.7em;  position: absolute; Top:28%; left:17%;color: black; line-height:2.2em;" >
+				우울증 예방 또는 극복을 위하여 자기 자신의 상태를<br>
+		먼저 아는 노력이 무엇보다 가장 중요합니다.<br>
+		</div>
+
+
+
+
+			<div id="self1" id="AiBox1">
+				<img src="png/Problem2.png" width="120%" height="" >
+			</div>
+
+			<div id="self2" id="AiBox1">
+				<img src="png/Problem2.png" width="80%" height="" style=" position: absolute; Top:40%; right:10%; " >
+			</div>
+
+
+
+			<div class="btn-wrap">
+
+
+
+				<a href="#" id="AiBox2"id="self1" class="btn"><img src="svg/TestButton.svg" width="200%" height="" ></a>
+
+			</div>
+
+
+
+			<div id="modal" id="self2">
+					<div class="modal-bg">
+							<div class="modal-cont">
+
+									<img src="svg/TestModalM.svg"  id="Img2">
+									<a href="#" class="close close1">
+
+									</a>
+							</div>
+					</div>
+			</div>
+
+
+
+
+
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.0/jquery.min.js"></script>
+			<script type="text/javascript">
+				$(".btn").click(function(){
+						$("#modal").removeAttr("class").addClass("three");
+				});
+
+				$(".close").click(function(){
+						$("#modal").addClass("out");
+				});
+			</script>
+
+
+
+
+
+
+		<div id="self1" style=" font-size:0.5em;  position: absolute; Top:70%; right:34%;color: black;" >
+				우울증 자가진단 테스트 후에 복잡한 생각이 든다면 지금,<br><br>
+
+			오늘만큼은 내가 좋아하는 일<br>
+			혹은 내 마음의 에너지를  채울 수 있는 일들로 쉬어가는 시간을 가지는 건 어떨까요?<br>
+				</div>
+
+				<div id="self2" style=" font-size:0.8em;  position: absolute; Top:70%; left:10%;color: black;line-height:2em;" >
+						우울증 자가진단 테스트 후에 복잡한 생각이 든다면 지금,<br><br>
+
+					오늘만큼은 내가 좋아하는 일<br>
+					혹은 내 마음의 에너지를  채울 수 있는 일들로 <br>쉬어가는 시간을 가지는 건 어떨까요?<br>
+						</div>
+
+
+		</div>
+
+		</div>
+	</div>
+<!--
+두번째 페이지
+-->
+
+	<div class="section" id="section1">
+		<div style=" font-size:1em;  position: absolute; Top:109%; right:25%; color: black;" >많이 힘들었을 당신은 지금,</div>
+
+
+
+
+
+	<div id="TestBox1">	<div id="AiButton1" style=" position: absolute; Top:0%; right:80%;">
+			<a href="#tag1"><img src="svg/TestScoreButton1.svg" width="160%" height="" ></a>
+		</div>
+		<div id="Text1" style=" font-size:0.8em; text-align:left; position: absolute;left:38%;top:3%; line-height:1.5em;">
+				<span style=" font-size:2em; margin-bottom:100px;">01</span><br>
+				<span style=" font-size:0.8em;">15미만
+			가벼운 우울</span><br>
+			<span style=" font-size:1em;line-height:2em;">현재 가벼운 우울 증상인 <br>모두가 경험하는 정상 반응입니다</span>
+
+		</div>
+</div>
+
+<div id="TestBox2">
+		<div id="AiButton2" style=" position: absolute; Top:0%; right:90%;">
+			<a href="Info.html"><img src="svg/TestScoreButton2.svg" width="320%" height="" ></a>
+		</div>
+		<div id="Text1" style=" font-size:0.8em; text-align:left; position: absolute;left:38%;top:3%; line-height:1.5em;">
+				<span style=" font-size:2em; margin-bottom:100px;">02</span><br>
+				<span style=" font-size:0.8em;">
+			16 - 25점 중등도 우울</span><br>
+			<span style=" font-size:1em;line-height:2em;">중등도 우울을 경험하고 있습니다<br>
+			이로 인해 일상 활력이 낮습니다<br>
+		활력을 높이기 위해 다양한 것을<br>
+		접해보며 방안을 모색해야합니다</span>
+
+		</div>
+</div>
+
+<div id="TestBox3">
+		<div id="AiButton3" style=" position: absolute; Top:0%; right:90%;">
+			<a href="Info.html"><img src="svg/TestScoreButton3.svg" width="325%" height="" ></a>
+		</div>
+		<div id="Text1" style=" font-size:0.8em; text-align:left; position: absolute;left:38%;top:3%; line-height:1.5em;">
+				<span style=" font-size:2em; margin-bottom:100px;">02</span><br>
+				<span style=" font-size:0.8em;">
+		25점 이상 높은 우울</span><br>
+			<span style=" font-size:1em;line-height:2em;">높은 우울을 경험하고 있습니다<br>
+			이로 인해 일상에서 어려움을<br> 겪고 있을 수 있습니다<br>
+	상담가와 면담이 필요합니다</span>
+
+		</div>
+</div>
+
+
+	</div>
+
+	<!--
+	세번째 페이지
+	-->
+
+	<div id="TestBox4">
+		<img  id="TestLetterButton" src="svg/TestLetterButtonM1.svg" width="60%" height="" style=" position: absolute; Top:23%;left:20%;">
+
+
+					<div  id="TestLetterButtonM" onclick="ChnImg1()" style=" position: absolute; Top:25%; right:65%;" >
+<a name="tag1"></a>
+				</div>
+
+
+
+				<div  id="TestLetterButtonM"  onclick="ChnImg2()" style=" position: absolute; Top:56%; right:65%;"  >
+
+				</div>
+
+
+
+				<div id="TestLetterButtonM"  onclick="ChnImg3()" style=" position: absolute; Top:84%; right:65%;" >
+
+				</div>
+
+
+
+	</div>
+	<img id="Letter" src="svg/TestLetterM1.svg" width="80%" height="" style=" position: absolute; Top:230%;left:13%;">
+
+	<script type="text/javascript">
+
+	function ChnImg1(){
+
+		document.getElementById("Letter").src = "svg/TestLetterM1.svg";
+		document.getElementById("TestLetterButton").src = "svg/TestLetterButtonM1.svg";
+
+	}
+
+  function ChnImg2(){
+
+		document.getElementById("Letter").src = "svg/TestLetterM2.svg";
+		document.getElementById("TestLetterButton").src = "svg/TestLetterButtonM2.svg";
+
+	}
+
+  function ChnImg3(){
+
+		document.getElementById("Letter").src = "svg/TestLetterM3.svg";
+		document.getElementById("TestLetterButton").src = "svg/TestLetterButtonM3.svg";
+
+	}
+
+</script>
+
+<div id="TestBox6"></div>
+
+
+
+
+
+
+	<!--
+	메뉴
+	-->
+
+<article>
+	<a href="#" class="menuBtn">
+		<span class="lines"></span>
+	</a>
+		<nav class="mainMenu">
+	<ul>
+		<li><a href="index.html">홈</li>
+		<li><a href="TestM.html">진단</li>
+		<li><a href="Info.html">정보</li>
+	</ul>
+	</nav>
+</article>
+
+<script src='https://cdnjs.cloudflare.com/ajax/libs/jquery/2.1.3/jquery.min.js'></script>
+<script>
+$(document).ready(function(){
+// menu click event
+$('.menuBtn').click(function() {
+$(this).toggleClass('act');
+ if($(this).hasClass('act')) {
+	 $('.mainMenu').addClass('act');
+ }
+ else {
+	 $('.mainMenu').removeClass('act');
+ }
+});
+});
+</script>
+
+</body>
+</html>

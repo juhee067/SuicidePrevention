@@ -1,0 +1,130 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+	<meta charset="UTF-8">
+	<title>Layer Popup</title>
+	<style>
+		body {background: #7986cb; margin:0;}
+		a {text-decoration: none; color:#666;}
+
+		/* btn */
+
+
+		/* modal */
+		#modal {
+			position: fixed; left:0; top:0;
+			width: 100%; height: 100%;
+			transform: scale(0);
+		}
+		#modal .modal-bg {
+			background: rgba(0,0,0,0.7);
+			display:flex;
+			align-items: center;
+			justify-content: center;
+			height: 100%;
+		}
+		#modal .modal-bg .modal-cont {
+			position:relative;
+			background: #fff;
+			padding: 40px;
+			max-width: 500px;
+			display: inline-block;
+		}
+		#modal .modal-bg .modal-cont h2 {
+			font-size: 30px;
+			margin:0;
+		}
+		#modal .modal-bg .modal-cont p {
+			font-size: 18px;
+		}
+		#modal .modal-bg .modal-cont .close svg {
+			width: 24px;
+			fill: black;
+			vertical-align: top;
+		}
+		#modal.three {
+			transform: scale(1);
+		}
+		#modal.three .modal-bg {
+			background: rgba(0,0,0,0);
+			animation: fadeIn 0.5s cubic-bezier(0.165, 0.85, 0.44, 1) forwards;
+		}
+		#modal.three .modal-bg .modal-cont {
+			opacity: 0;
+			animation: scaleUp 0.5s cubic-bezier(0.165, 0.85, 0.44, 1) forwards;
+		}
+		#modal.three.out {
+			animation: quickScaleDown 0s .5s linear forwards;
+		}
+		#modal.three.out .modal-bg {
+			background: rgba(0,0,0,0);
+			animation: fadeOut 0.5s cubic-bezier(0.165, 0.85, 0.44, 1) forwards;
+		}
+		#modal.three.out .modal-bg .modal-cont {
+			opacity: 0;
+			animation: scaleDown 0.5s cubic-bezier(0.165, 0.85, 0.44, 1) forwards;
+		}
+
+
+		@keyframes fadeOut {
+			0% {background: rgba(0,0,0,0.7)}
+			100% {background: rgba(0,0,0,0)}
+		}
+		@keyframes scaleUp {
+			0% {transform: scale(0.5) translatey(1000px); opacity:0}
+			100% {transform: scale(1) translatey(0px); opacity:1}
+		}
+		@keyframes scaleDown {
+			0% {transform: scale(1) translatey(0px); opacity:1}
+			100% {transform: scale(0.5) translatey(1000px); opacity:0}
+		}
+		@keyframes quickScaleDown {
+			0% {transform: scale(1);}
+			99.9% {transform: scale(1); }
+			100% {transform: scale(0); }
+		}
+	</style>
+</head>
+<body>
+
+		<a href="#" class="btn"><img src="svg/TestButton.svg" width="20%" height="" ></a>
+
+
+	<div id="modal">
+	    <div class="modal-bg">
+	        <div class="modal-cont">
+	            <a href="#" class="close close1">
+	               <svg>
+									 <img src="svg/comma.svg" width="10%" height="" >
+						</svg>
+	            </a>
+							<div class="modal-cont"> </div>
+							<div class="test">
+							  <form class="test-wrapper">
+							    <h2 class="test-header">나의 우울증 지수는?</h2>
+							    <p class="test-descripton">아래의 항목을 잘 읽고
+							      ‘요즘 며칠 사이 이런 경험을 얼마나 자주 했는지’를
+							      빈도에 따라 적절한 숫자에 표시하시기 바랍니다.</p>
+							    <div class="questions"></div>
+							    <div class="test-result"></div>
+							  </form>
+							</div>
+							<!-- partial -->
+							  <script  src="TestContent/script.js"></script>
+
+	        </div>
+	    </div>
+	</div>
+
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.0/jquery.min.js"></script>
+	<script type="text/javascript">
+		$(".btn").click(function(){
+		    $("#modal").removeAttr("class").addClass("three");
+		});
+
+		$(".close").click(function(){
+		    $("#modal").addClass("out");
+		});
+	</script>
+</body>
+</html>
