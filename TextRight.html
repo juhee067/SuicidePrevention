@@ -1,0 +1,204 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Document</title>
+  <meta http-equiv='refresh' content='25; url=TextRightAdvise.html'>
+
+  <style>
+  @font-face {
+    font-family: 'RIDIBatang';
+    src: url('https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_twelve@1.0/RIDIBatang.woff') format('woff');
+    font-weight: normal;
+    font-style: normal;
+                       }
+
+  body{margin: 0;
+       font-family:'RIDIBatang', '리디바탕', ng }
+
+header {
+  width:100%;
+  height:160px;
+}
+
+#LogoBox{width: 5%;
+         height: 5%;
+         position:absolute;
+         top:2%;
+         left:0%;
+
+       }
+
+#LogoBox img {
+  display:block;
+  position:absolute;
+  top:25%;
+  left:34%;
+}
+
+#AndBox{
+  width: 10%;
+           height: 10%;
+  position:absolute;
+  top:0%;
+  left:47%;
+
+
+}
+
+#AndBox img {
+  display:block;
+  position:absolute;
+  top:50%;
+  left:0%;
+  z-index: 2;
+}
+
+
+
+.jb-box { width: 85%;  overflow: hidden; margin: 0px auto; position: absolute; top:4%; left: 7%;
+z-index: 0;}
+      video { width: 100%; }
+      audio {position: absolute; bottom:10%; right: 4%;}
+      #videoBase{display: none;}
+
+
+
+
+  </style>
+
+  <style media="all and (max-width:767px)">
+
+  header
+  {
+    width:100%;
+    height:60px;
+  }
+
+  #LogoBox{width: 15%;
+           height: 15%;
+           position:absolute;
+           top:0%;
+           left:0%;
+
+         }
+
+  #LogoBox img {
+    display:block;
+    position:absolute;
+    top:25%;
+    left:34%;
+  }
+
+  #AndBox{
+    width: 30%;
+             height: 30%;
+    position:absolute;
+    top:0%;
+    left:40%;
+
+  }
+
+  #AndBox img {
+    display:block;
+    position:absolute;
+    top:14%;
+    left:0%;
+  }
+
+  * {
+    margin: 0;
+    padding: 0;
+  }
+  *,
+  *:after,
+  *:before {
+    box-sizing: border-box;
+  }
+  ol,
+  ul {
+    list-style: none;
+  }
+  a {
+    color: #000;
+    text-decoration: none;
+  }
+  .mobile {
+    background-color: #19b698;
+    border: 0 solid #333;
+    border-width: 50px 15px;
+    border-radius: 12px;
+    box-shadow: 5px 5px 0 rgba(0, 0, 0, 0.6);
+    margin: 20px auto;
+    max-width: 300px;
+    height: 560px;
+    overflow: hidden;
+    position: relative;
+    margin-top: 40px;
+  }
+
+  .logo {
+    color: #fff;
+    font-size: 20px;
+    line-height: 50px;
+    padding: 0 0 0 20px;
+    text-transform: capitalize;
+  }
+
+    .jb-box { width: 100%;  overflow: hidden;  position: absolute; top:40%; left: 7%;
+    z-index: 0; display: none;}
+          video { width: 100%; }
+
+    audio {position: absolute; bottom:10%; right: 4%;}
+#videoBase{
+   position: absolute; left: 10%;top: 15%;
+width: 80%;
+height: 70%;
+display: inline;}
+
+
+    </style>
+
+
+
+</head>
+<body>
+  <header>
+    <div id="LogoBox"><a href="index.html"><img src="svg/Logo.svg" width="70%" height=""  ></a></div>
+    <div id="AndBox"><img src="svg/Logo Text.svg" width="70%" height="" ></div>
+  </header>
+  <script>
+    function unmute() {
+      const player = document.getElementById("player");
+      player.muted = false;
+    }
+  </script>
+
+  <div id="videoBase">
+    <video muted autoplay>
+      <source src="TextVideo/TextRM.mp4" type="video/mp4">
+
+    </video>
+    </div>
+
+  <div class="jb-box">
+      <video muted autoplay>
+        <source src="TextVideo/Text2.mp4" type="video/mp4">
+
+      </video>
+      </div>
+      <audio autoplay>
+        <source src="TextVideo/Text.mp3" type="audio/mp3"> </audio>
+
+  <aside>
+
+  </aside>
+
+
+  <article>
+
+  </article>
+</body>
+</html>
