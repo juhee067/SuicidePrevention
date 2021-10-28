@@ -2,16 +2,10 @@
 <html xmlns="http://www.w3.org/1999/xhtml">
 
 <head>
-	<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-	<title>Responsive Auto-height - fullPage.js</title>
-	<meta name="author" content="Alvaro Trigo Lopez" />
-	<meta name="description" content="fullPage full-screen navigation and sections control menu." />
-	<meta name="keywords"  content="fullpage,jquery,demo,screen,fullscreen,navigation,control arrows, dots" />
-	<meta name="Resource-type" content="Document" />
-
-
-	<link rel="stylesheet" type="text/css" href="css/fullpage.css" />
-	<link rel="stylesheet" type="text/css" href="css/examples.css" />
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<meta http-equiv="X-UA-Compatible" content="ie=edge">
+	<title>Document</title>
 	<style>
 
 	@font-face {
@@ -130,16 +124,15 @@
 
 #AiBox2{
 	position:absolute;
-	top:26%;
-	left: 65%;
-
+	top:35%;
+	left: 72%;
+z-index:0;
 width:12%;
 }
 
 
 #TextBox{ width:10%;
 height: 5%;
-
 }
 
 .TestTextBtn{
@@ -169,11 +162,11 @@ font-size: 18px; text-align: center; padding-top: 6px;
 
 .modal-cont img:nth-child(2){position:absolute; top: 50%; left: 100%}
 .modal-cont img:nth-child(3){position:absolute; top: 50%; left:-10%}
-#Img2{position:absolute; top:4%; left: 0%;  width:100%; height:100%; }
+#Img2{position:absolute; top:4%; left: 0%;  width:100%; height:98%; }
 
 
 #modal {
-position: fixed; left:10%; top:0;
+position: fixed; left:10%; top:7%;
 width: 80%; height: 90%;
 transform: scale(0);
 z-index: 4;
@@ -212,7 +205,7 @@ font-size: 18px;
 position: absolute; top: 0; right:0;
 margin:15px;
 background: #000;
-width:2%; height: 3.2%;
+width:6%; height: 3.2%;
 
 }
 
@@ -258,6 +251,8 @@ animation: scaleDown 0.5s cubic-bezier(0.165, 0.85, 0.44, 1) forwards;
 99.9% {transform: scale(1); }
 100% {transform: scale(0); }
 }
+
+#self2 {display: none;}
 
 	</style>
 
@@ -306,16 +301,20 @@ animation: scaleDown 0.5s cubic-bezier(0.165, 0.85, 0.44, 1) forwards;
 
 	<style media="all and (max-width:767px)">
 
+
 	header
 	{
 		width:100%;
 		height:60px;
+		position: fixed;
+		top:4%;
+
 	}
 
 	#LogoBox{width: 15%;
 					 height: 15%;
 					 position:absolute;
-					 top:0%;
+					 top:-10%;
 					 left:0%;
 
 				 }
@@ -385,7 +384,7 @@ animation: scaleDown 0.5s cubic-bezier(0.165, 0.85, 0.44, 1) forwards;
 	.menuBtn {
 		height: 30px;
 		width: 30px;
-		position: absolute;
+		position: fixed;
 		right: 20px;
 		top: 24px;
 		z-index: 101;
@@ -439,6 +438,7 @@ animation: scaleDown 0.5s cubic-bezier(0.165, 0.85, 0.44, 1) forwards;
 	}
 	/* main menu block */
 	.mainMenu {
+
 		background-color: #fff;
 		position: absolute;
 		left: 0;
@@ -525,21 +525,79 @@ animation: scaleDown 0.5s cubic-bezier(0.165, 0.85, 0.44, 1) forwards;
 	a:hover {
 			color : gray;}
 
-	#TextLeft{display:none;
-	}
-	#TextLeftM{display:inline;
-	position: absolute;
-	top:15%;
-	left:3%;
-	}
+#self1 {display: none;}
+#self2 {display: inline;}
 
-	#TextLeftLink {
-				 position:absolute;
-				 top:35%;
-				 left:26%;
-				 width:70%;
-			 }
+#TextBox{ width:10%;
+height: 5%;
+}
 
+.TestTextBtn{
+	width: 110px;
+	height:110px;
+ position:absolute;
+ top:425px;
+ left:1285px;}
+
+
+
+#TestBox1{width: 90%;
+height:20%;
+
+position:absolute;
+top:120%;
+right:2%;
+
+
+}
+#TestBox2{width: 90%;
+height:20%;
+
+position:absolute;
+top:145%;
+right:2%;
+
+
+}
+#TestBox3{width: 90%;
+height:20%;
+
+position:absolute;
+top:170%;
+right:2%;
+
+
+}
+#TestBox4{width: 55%;
+height:20%;
+
+position:absolute;
+top:205%;
+right:22%;
+
+
+}
+
+#TestBox6{width: 45%;
+height:10%;
+
+position:absolute;
+top:285%;
+right:2%;
+
+
+}
+
+#TestLetterButtonM{
+
+	width: 60%;
+	height: 20%;
+	position:absolute;
+
+	left:20%;
+
+
+}
 		</style>
 </head>
 <body>
@@ -554,35 +612,55 @@ animation: scaleDown 0.5s cubic-bezier(0.165, 0.85, 0.44, 1) forwards;
 		<div class="intro">
 
 			<div id="Text">
-		<div style=" font-size:2em;  position: absolute; Top:10%; right:40%; color: black;" >나 자신을 스스로 드러내다</div>
+		<div id="self1" style=" font-size:2em;  position: absolute; Top:10%; right:40%; color: black;" >나 자신을 스스로 드러내다</div>
+			<div id="self2" style=" font-size:1em;  position: absolute; Top:20%; left:25%; color: black;" >나 자신을 스스로 드러내다</div>
 
-				<div style=" font-size:1em;  position: absolute; Top:20%; right:40%;color: black;" >
+				<div id="self1" style=" font-size:1em;  position: absolute; Top:20%; right:40%;color: black;" >
 					우울증 예방 또는 극복을 위하여 자기 자신의 상태를<br>
 			먼저 아는 노력이 무엇보다 가장 중요합니다.<br>
 			</div>
 
-			<div id="AiBox1">
+			<div  id="self2" style=" font-size:0.7em;  position: absolute; Top:28%; left:17%;color: black; line-height:2.2em;" >
+				우울증 예방 또는 극복을 위하여 자기 자신의 상태를<br>
+		먼저 아는 노력이 무엇보다 가장 중요합니다.<br>
+		</div>
+
+
+
+
+			<div id="self1" id="AiBox1">
 				<img src="png/Problem2.png" width="120%" height="" >
 			</div>
 
-			<div class="btn-wrap">
-				<div class="TestTextBtn">
-				<img src="TestBtn1.png" />
-				</div>
-				<a href="#" id="AiBox2" class="btn"><img src="svg/TestButton.svg" width="70%" height="" ></a>
+			<div id="self2" id="AiBox1">
+				<img src="png/Problem2.png" width="80%" height="" style=" position: absolute; Top:40%; right:10%; " >
 			</div>
 
-			<div id="modal">
+
+
+			<div class="btn-wrap">
+
+
+
+				<a href="#" id="AiBox2"id="self1" class="btn"><img src="svg/TestButton.svg" width="200%" height="" ></a>
+
+			</div>
+
+
+
+			<div id="modal" id="self2">
 					<div class="modal-bg">
 							<div class="modal-cont">
 
-									<img src="svg/TestModal.svg"  id="Img2">
+									<img src="svg/TestModalM.svg"  id="Img2">
 									<a href="#" class="close close1">
 
 									</a>
 							</div>
 					</div>
 			</div>
+
+
 
 
 
@@ -602,109 +680,146 @@ animation: scaleDown 0.5s cubic-bezier(0.165, 0.85, 0.44, 1) forwards;
 
 
 
-		<div style=" font-size:1em;  position: absolute; Top:70%; right:34%;color: black;" >
+		<div id="self1" style=" font-size:0.5em;  position: absolute; Top:70%; right:34%;color: black;" >
 				우울증 자가진단 테스트 후에 복잡한 생각이 든다면 지금,<br><br>
 
 			오늘만큼은 내가 좋아하는 일<br>
 			혹은 내 마음의 에너지를  채울 수 있는 일들로 쉬어가는 시간을 가지는 건 어떨까요?<br>
 				</div>
+
+				<div id="self2" style=" font-size:0.8em;  position: absolute; Top:70%; left:10%;color: black;line-height:2em;" >
+						우울증 자가진단 테스트 후에 복잡한 생각이 든다면 지금,<br><br>
+
+					오늘만큼은 내가 좋아하는 일<br>
+					혹은 내 마음의 에너지를  채울 수 있는 일들로 <br>쉬어가는 시간을 가지는 건 어떨까요?<br>
+						</div>
+
+
 		</div>
 
 		</div>
 	</div>
+<!--
+두번째 페이지
+-->
 
 	<div class="section" id="section1">
-		<div style=" font-size:1.5em;  position: absolute; Top:9%; right:42%; color: black;" >많이 힘들었을 당신은 지금,</div>
-		<div id="Ai" style=" position: absolute; Top:40%; right:22%;">
-			<img src="png/TestScore.png" width="100%" height="" >
-		</div>
+		<div style=" font-size:1em;  position: absolute; Top:109%; right:25%; color: black;" >많이 힘들었을 당신은 지금,</div>
 
-		<div id="AiButton1" style=" position: absolute; Top:20%; right:63%;">
-			<a href="#tag1"><img src="svg/TestScoreButton1.svg" width="50%" height="" ></a>
-		</div>
 
-		<div id="AiButton2" style=" position: absolute; Top:20%; right:41.5%;">
-			<a href="Info.html"><img src="svg/TestScoreButton2.svg" width="50%" height="" ></a>
-		</div>
 
-		<div id="AiButton3" style=" position: absolute; Top:20%; right:19.5%;">
-			<a href="Info.html"><img src="svg/TestScoreButton3.svg" width="50%" height="" ></a>
-		</div>
 
+
+	<div id="TestBox1">	<div id="AiButton1" style=" position: absolute; Top:0%; right:80%;">
+			<a href="#tag1"><img src="svg/TestScoreButton1.svg" width="160%" height="" ></a>
+		</div>
+		<div id="Text1" style=" font-size:0.7em; text-align:left; position: absolute;left:38%;top:3%; line-height:1.5em;">
+				<span style=" font-size:2em; margin-bottom:100px;">01</span><br>
+				<span style=" font-size:0.8em;">15미만
+			가벼운 우울</span><br>
+			<span style=" font-size:1em;line-height:2em;">현재 가벼운 우울 증상인 <br>모두가 경험하는 정상 반응입니다</span>
+
+		</div>
+</div>
+
+<div id="TestBox2">
+		<div id="AiButton2" style=" position: absolute; Top:30%; right:90%;">
+			<a href="Info.html"><img src="svg/TestScoreButton2.svg" width="320%" height="" ></a>
+		</div>
+		<div id="Text1" style=" font-size:0.7em; text-align:left; position: absolute;left:38%;top:33%; line-height:1.5em;">
+				<span style=" font-size:2em; margin-bottom:100px;">02</span><br>
+				<span style=" font-size:0.8em;">
+			16 - 25점 중등도 우울</span><br>
+			<span style=" font-size:1em;line-height:2em;">중등도 우울을 경험하고 있습니다<br>
+			이로 인해 일상 활력이 낮습니다<br>
+		활력을 높이기 위해 다양한 것을<br>
+		접해보며 방안을 모색해야합니다</span>
+
+		</div>
+</div>
+
+<div id="TestBox3">
+		<div id="AiButton3" style=" position: absolute; Top:60%; right:90%;">
+			<a href="Info.html"><img src="svg/TestScoreButton3.svg" width="325%" height="" ></a>
+		</div>
+		<div id="Text1" style=" font-size:0.7em; text-align:left; position: absolute;left:38%;top:63%; line-height:1.5em;">
+				<span style=" font-size:2em; margin-bottom:100px;">03</span><br>
+				<span style=" font-size:0.8em;">
+		25점 이상 높은 우울</span><br>
+			<span style=" font-size:1em;line-height:2em;">높은 우울을 경험하고 있습니다<br>
+			이로 인해 일상에서 어려움을<br> 겪고 있을 수 있습니다<br>
+	상담가와 면담이 필요합니다</span>
+
+		</div>
+</div>
 
 
 	</div>
 
-	<!-- 세번째 -->
+	<!--
+	세번째 페이지
+	-->
+
+	<div id="TestBox4">
+		<img  id="TestLetterButton" src="svg/TestLetterButtonM1.svg" width="60%" height="" style=" position: absolute; Top:80%;left:20%;">
+
+
+					<div  id="TestLetterButtonM" onclick="ChnImg1()" style=" position: absolute; Top:80%; right:65%;" >
+<a name="tag1"></a>
+				</div>
+
+
+
+				<div  id="TestLetterButtonM"  onclick="ChnImg2()" style=" position: absolute; Top:120%; right:65%;"  >
+
+				</div>
+
+
+
+				<div id="TestLetterButtonM"  onclick="ChnImg3()" style=" position: absolute; Top:160%; right:65%;" >
+
+				</div>
+
+
+
+	</div>
+	<img id="Letter" src="svg/TestLetterM1.svg" width="80%" height="" style=" position: absolute; Top:250%;left:13%;">
 
 	<script type="text/javascript">
 
 	function ChnImg1(){
 
-		document.getElementById("Letter").src = "svg/TestLetter1.svg";
+		document.getElementById("Letter").src = "svg/TestLetterM1.svg";
+		document.getElementById("TestLetterButton").src = "svg/TestLetterButtonM1.svg";
 
 	}
 
   function ChnImg2(){
 
-		document.getElementById("Letter").src = "svg/TestLetter2.svg";
+		document.getElementById("Letter").src = "svg/TestLetterM2.svg";
+		document.getElementById("TestLetterButton").src = "svg/TestLetterButtonM2.svg";
 
 	}
 
   function ChnImg3(){
 
-		document.getElementById("Letter").src = "svg/TestLetter3.svg";
+		document.getElementById("Letter").src = "svg/TestLetterM3.svg";
+		document.getElementById("TestLetterButton").src = "svg/TestLetterButtonM3.svg";
 
 	}
 
 </script>
 
-	<div class="section" id="section2">
-		<div style=" position: absolute; Top:14%; right:63%;">
-			<img id="Letter" src="svg/TestLetter1.svg" width="370%" height="" >
-		</div>
+<div id="TestBox6"></div>
 
 
 
 
-			<div id="TextBox"  onclick="ChnImg1()" style=" position: absolute; Top:25%; right:68%;" >
-		</div>
 
 
-
-		<div id="TextBox"  onclick="ChnImg2()" style=" position: absolute; Top:42%; right:68%;"  >
-
-		</div>
-
-
-
-		<div id="TextBox"  onclick="ChnImg3()" style=" position: absolute; Top:58%; right:68%;" >
-		</div>
-<a name="tag1"></a>
-
-
-	</div>
-</div>
-
-<script type="text/javascript" src="css/fullpage.js"></script>
-<script type="text/javascript" src="css/examples.js"></script>
-
-<script type="text/javascript">
-    var myFullpage = new fullpage('#fullpage', {
-        anchors: ['firstPage', 'secondPage', '3rdPage'],
-        sectionsColor: ['White', 'White', 'White'],
-        navigation: true,
-        navigationPosition: 'right',
-        navigationTooltips: ['나 자신을 스스로 드러내다', '많이 힘들었을 당신은 지금,', '힘들어 하고 있을 너에게'],
-        responsiveWidth: 900,
-        afterResponsive: function(isResponsive){
-
-        }
-
-    });
-</script>
-
-
+	<!--
+	메뉴
+	-->
 
 <article>
 	<a href="#" class="menuBtn">
@@ -713,7 +828,7 @@ animation: scaleDown 0.5s cubic-bezier(0.165, 0.85, 0.44, 1) forwards;
 		<nav class="mainMenu">
 	<ul>
 		<li><a href="index.html">홈</li>
-		<li><a href="Test.html">진단</li>
+		<li><a href="TestM.html">진단</li>
 		<li><a href="Info.html">정보</li>
 	</ul>
 	</nav>
